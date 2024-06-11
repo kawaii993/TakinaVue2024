@@ -77,7 +77,19 @@
 
         <el-row style="margin-top: 20px;">
             <el-col>
-                <el-input style="width: 200px;"></el-input>
+
+                <el-input style="width: 200px;" v-model="value" placeholder="请输入内容"></el-input>
+                <el-input type="textarea" style="width: 200px;" v-model="value1" placeholder="找工作好难"></el-input>
+
+                <el-input show-password style="width: 200px;" v-model="password" placeholder="请输入密码"></el-input>
+
+                <el-input style="width: 200px;" v-model="value2" placeholder="请输入内容"
+                    prefix-icon="el-icon-search"></el-input>
+                <el-input clearable style="width: 200px;" v-model="value2" placeholder="请输入内容"
+                    suffix-icon="el-icon-search"></el-input>
+
+                <el-button>搜索</el-button>
+
             </el-col>
 
         </el-row>
@@ -87,7 +99,15 @@
 
 <script>
 export default {
-
+    name: 'Element',
+    data() {
+        return {
+            value: '',
+            value1:'',
+            value2: '',
+            password:'',
+        }
+    }
 }
 </script>
 
