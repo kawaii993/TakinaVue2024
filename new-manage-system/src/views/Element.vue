@@ -16,7 +16,7 @@
 
 
     <div>
-        <el-row gutter="10">
+        <el-row :gutter="10">
 
             <el-col :span="6">
                 <div style="padding: 10px; border: 1px solid #ccc; 
@@ -94,18 +94,36 @@
 
         </el-row>
 
+
+        <el-row style="margin: 20px 0;">
+            <el-autocomplete style="width:300px;" placeholder="请输入内容，我来帮你猜一猜" :fetch-suggestions="querySearch"
+                :trigger-on-focus="false" v-model="value3">
+
+            </el-autocomplete>
+        </el-row>
+
     </div>
 </template>
 
 <script>
+import { Result } from 'element-ui';
+
 export default {
     name: 'Element',
     data() {
         return {
             value: '',
-            value1:'',
+            value1: '',
             value2: '',
-            password:'',
+            value3: '',
+            password: '',
+            coffees: [{ value: '1星巴克咖啡' }, { value: '1栖巢咖啡' }, { value: '2瑞幸咖啡' }, { value: '3库迪咖啡' }],
+        }
+    },
+    methods: {
+        querySearch(query, cb) {  // callback 回调
+            let result = query ? this.coffees.filter(v => v.value.includes(query)) : this.coffees
+            cb(result);
         }
     }
 }
