@@ -148,9 +148,17 @@
 
         </el-row>
 
-        <el-row style="margin: 20px 0;">
-            <el-table>
-
+        <el-row style="margin: 80px 0;">
+            <el-table :data="tableData" border :header-cell-style="{ background: 'aliceblue',fontSize:'16px'}">
+                <el-table-column label="序号" prop="id" align="center"></el-table-column>
+                <el-table-column label="名称" prop="name" align="center"></el-table-column>
+                <el-table-column label="年龄" prop="age" align="center"></el-table-column>
+                <el-table-column label="地址" prop="address" align="center"></el-table-column>
+                <el-table-column label="操作" align="center">
+                    <template v-slot="scope">
+                        <el-button type="primary" @click="edit(scope.row)">编辑</el-button>
+                    </template>
+                </el-table-column>
             </el-table>
         </el-row>
 
@@ -165,6 +173,11 @@ export default {
     name: 'Element',
     data() {
         return {
+            tableData: [
+                { name: '眠羊', address: '湖北省武汉市', id: 1, age: '10' },
+                { name: '眠羊', address: '湖北省武汉市', id: 1, age: '10' },
+                { name: '眠羊', address: '湖北省武汉市', id: 1, age: '10' },
+            ],
             value: '',
             value1: '',
             value2: '',
@@ -215,6 +228,18 @@ export default {
         },
         changeDateTime() {
             console.log(this.datetime);
+        },
+        edit(row){
+            // alert(row.name)
+            // this.$message.success(row.name)
+            // this.$notify.success(row.name)
+            this.$confirm( '这是什么个玩意儿' , '提示',{
+                type:'warning'
+            }).then(res => {
+                this.$message.success('oi 点击了确认')
+            }).catch(()=>{
+                this.$message.warning('oi 点击了取消')
+            })
         },
     }
 }
