@@ -102,6 +102,59 @@
             </el-autocomplete>
         </el-row>
 
+        <el-select v-model="select" @change="changeSelect">
+            <el-option value="香蕉"></el-option>
+            <el-option value="橘子"></el-option>
+            <el-option value="菠萝"></el-option>
+        </el-select>
+
+        <el-select v-model="select1" @change1="changeSelect">
+            <el-option v-for="item in fruits" :key="item.id" :label="item.name" :value="item.name"></el-option>
+        </el-select>
+
+        <el-select v-model="select2" @change="changeSelectUser">
+            <el-option v-for="item in users" :key="item.card" :label="item.name" :value="item.card"></el-option>
+        </el-select>
+        <el-select v-model="select2" @change="changeSelectUser" multiple>
+            <el-option v-for="item in users" :key="item.card" :label="item.name" :value="item.card"></el-option>
+        </el-select>
+
+        <el-select v-model="select2" @change="changeSelectUser" filterable>
+            <el-option v-for="item in users1" :key="item.card" :label="item.label" :value="item.card"></el-option>
+        </el-select>
+
+
+        <el-row>
+            <el-radio-group v-model="radio" @change="selectRadio">
+                <el-radio label="男"></el-radio>
+                <el-radio label="女"></el-radio>
+            </el-radio-group>
+
+            <el-checkbox-group v-model="checkList">
+                <el-checkbox label="男"></el-checkbox>
+                <el-checkbox label="女"></el-checkbox>
+            </el-checkbox-group>
+
+            <el-date-picker v-model="date" type="date" placeholder="选择日期" value-format="yyyy-MM-dd"
+                @change="changeDate"></el-date-picker>
+            <el-date-picker v-model="datetime" type="datetime" placeholder="选择日期时间" value-format="yyyy-MM-dd HH:mm:ss"
+                @change="changeDateTime"></el-date-picker>
+
+            <el-date-picker v-model="daterange" type="daterange" start-placeholder="开始日期" end-placeholder="结束日期"
+                value-format="yyyy-MM-dd">
+
+            </el-date-picker>
+
+
+        </el-row>
+
+        <el-row style="margin: 20px 0;">
+            <el-table>
+
+            </el-table>
+        </el-row>
+
+
     </div>
 </template>
 
@@ -117,14 +170,52 @@ export default {
             value2: '',
             value3: '',
             password: '',
+            select: '',
+            select1: '',
+            select2: '',
+            fruits: [
+                { name: '苹果', id: 1 },
+                { name: '橘子', id: 2 },
+                { name: '香橙', id: 3 },
+            ],
             coffees: [{ value: '1星巴克咖啡' }, { value: '1栖巢咖啡' }, { value: '2瑞幸咖啡' }, { value: '3库迪咖啡' }],
+            users: [
+                { name: '你怎么好笨', card: '12311212123' },
+                { name: '又被小乔了', card: '12311212124' },
+                { name: 'Cutey', card: '12311212125' },
+            ],
+            users1: [
+                { label: '你怎么好笨', card: '12311212123' },
+                { label: '又被小乔了', card: '12311212124' },
+                { label: 'Cutey', card: '12311212125' },
+            ],
+            radio: '',
+            checkList: [],
+            date: '',
+            datetime: '',
+            daterange: '',
         }
     },
     methods: {
         querySearch(query, cb) {  // callback 回调
             let result = query ? this.coffees.filter(v => v.value.includes(query)) : this.coffees
             cb(result);
-        }
+        },
+        changeSelect() {
+            console.log(this.select);
+        },
+        changeSelectUser() {
+            console.log(this.select2);
+        },
+        selectRadio() {
+            alert(this.radio);
+        },
+        changeDate() {
+            console.log(this.date);
+        },
+        changeDateTime() {
+            console.log(this.datetime);
+        },
     }
 }
 </script>
