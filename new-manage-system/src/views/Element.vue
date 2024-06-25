@@ -16,153 +16,208 @@
 
 
     <div>
-        <el-row :gutter="10">
 
-            <el-col :span="6">
-                <div style="padding: 10px; border: 1px solid #ccc; 
-                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);border-radius: 10px;text-align: center;">
-                    <img style="width: 80%;" src="@/assets/logo.png" alt="">
-                    <div style="text-align: center;">这是一段很牛b的描述</div>
-                    <div style="text-align: center;color: red;">价格 ￥99.00</div>
+        <el-container>
+
+            <el-aside style="width: 200px; min-height: 100vh;">
+                <div style="height: 60px; line-height: 60px; background-color: grey; color: white; 
+        display: flex; align-items: center; justify-content: center;">
+                    logo
                 </div>
-            </el-col>
-            <el-col :span="6">
-                <div style="padding: 10px; border: 1px solid #ccc; 
+
+
+                <el-menu router style="border: none;" :default-active="$route.path">
+                    <el-menu-item index="/">
+                        <template slot="title">
+                            <i class="el-icon-house"></i>
+                            <span>系统首页</span>
+                        </template>
+                    </el-menu-item>
+                    <el-menu-item index="/element">Element页面</el-menu-item>
+                    <el-menu-item>系统首页</el-menu-item>
+                    <el-menu-item>系统首页</el-menu-item>
+                    <el-submenu>
+                        <template slot="title">
+                            <i class="el-icon-menu"></i>
+                            <span>信息管理</span>
+                        </template>
+                        <el-menu-item>用户信息</el-menu-item>
+                    </el-submenu>
+                </el-menu>
+
+            </el-aside>
+
+            <el-container>
+                <!-- 头部区域 -->
+                <el-header>
+                    头部区域
+                </el-header>
+
+                <!-- 主体区域 -->
+                <el-main>
+
+                    <el-row :gutter="10">
+
+                        <el-col :span="6">
+                            <div style="padding: 10px; border: 1px solid #ccc; 
                     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);border-radius: 10px;text-align: center;">
-                    <img style="width: 80%;" src="@/assets/logo.png" alt="">
-                    <div style="text-align: center;">这是一段很牛b的描述</div>
-                    <div style="text-align: center;color: red;">价格 ￥99.00</div>
-                </div>
-            </el-col>
-            <el-col :span="6">
-                <div style="padding: 10px; border: 1px solid #ccc; 
+                                <img style="width: 80%;" src="@/assets/logo.png" alt="">
+                                <div style="text-align: center;">这是一段很牛b的描述</div>
+                                <div style="text-align: center;color: red;">价格 ￥99.00</div>
+                            </div>
+                        </el-col>
+                        <el-col :span="6">
+                            <div style="padding: 10px; border: 1px solid #ccc; 
                     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);border-radius: 10px;text-align: center;">
-                    <img style="width: 80%;" src="@/assets/logo.png" alt="">
-                    <div style="text-align: center;">这是一段很牛b的描述</div>
-                    <div style="text-align: center;color: red;">价格 ￥99.00</div>
-                </div>
-            </el-col>
-            <el-col :span="6">
-                <div style="padding: 10px; border: 1px solid #ccc; 
+                                <img style="width: 80%;" src="@/assets/logo.png" alt="">
+                                <div style="text-align: center;">这是一段很牛b的描述</div>
+                                <div style="text-align: center;color: red;">价格 ￥99.00</div>
+                            </div>
+                        </el-col>
+                        <el-col :span="6">
+                            <div style="padding: 10px; border: 1px solid #ccc; 
                     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);border-radius: 10px;text-align: center;">
-                    <img style="width: 80%;" src="@/assets/logo.png" alt="">
-                    <div style="text-align: center;">这是一段很牛b的描述</div>
-                    <div style="text-align: center;color: red;">价格 ￥99.00</div>
-                </div>
-            </el-col>
+                                <img style="width: 80%;" src="@/assets/logo.png" alt="">
+                                <div style="text-align: center;">这是一段很牛b的描述</div>
+                                <div style="text-align: center;color: red;">价格 ￥99.00</div>
+                            </div>
+                        </el-col>
+                        <el-col :span="6">
+                            <div style="padding: 10px; border: 1px solid #ccc; 
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);border-radius: 10px;text-align: center;">
+                                <img style="width: 80%;" src="@/assets/logo.png" alt="">
+                                <div style="text-align: center;">这是一段很牛b的描述</div>
+                                <div style="text-align: center;color: red;">价格 ￥99.00</div>
+                            </div>
+                        </el-col>
 
-        </el-row>
+                    </el-row>
 
-        <el-row>
-            <el-col :span="24">
-                <el-button type="info" plain>Element独特的按钮</el-button>
-                <el-button type="primary">主要按钮</el-button>
-                <el-button type="success">成功按钮</el-button>
-                <el-button type="info">信息按钮</el-button>
-                <el-button type="warning">警告按钮</el-button>
-                <el-button type="danger">危险按钮</el-button>
+                    <el-row>
+                        <el-col :span="24">
+                            <el-button type="info" plain>Element独特的按钮</el-button>
+                            <el-button type="primary">主要按钮</el-button>
+                            <el-button type="success">成功按钮</el-button>
+                            <el-button type="info">信息按钮</el-button>
+                            <el-button type="warning">警告按钮</el-button>
+                            <el-button type="danger">危险按钮</el-button>
 
-                <el-button type="primary" round>主要按钮</el-button>
-                <el-button type="success" round>成功按钮</el-button>
-                <el-button type="info" round>信息按钮</el-button>
+                            <el-button type="primary" round>主要按钮</el-button>
+                            <el-button type="success" round>成功按钮</el-button>
+                            <el-button type="info" round>信息按钮</el-button>
 
-                <el-button icon="el-icon-search" circle></el-button>
-                <el-button type="primary" icon="el-icon-edit" circle></el-button>
-                <el-button type="success" icon="el-icon-check" circle></el-button>
-                <el-button type="info" icon="el-icon-message" circle></el-button>
-                <el-button type="warning" icon="el-icon-star-off" circle></el-button>
-                <el-button type="danger" icon="el-icon-delete" circle></el-button>
-            </el-col>
-        </el-row>
+                            <el-button icon="el-icon-search" circle></el-button>
+                            <el-button type="primary" icon="el-icon-edit" circle></el-button>
+                            <el-button type="success" icon="el-icon-check" circle></el-button>
+                            <el-button type="info" icon="el-icon-message" circle></el-button>
+                            <el-button type="warning" icon="el-icon-star-off" circle></el-button>
+                            <el-button type="danger" icon="el-icon-delete" circle></el-button>
+                        </el-col>
+                    </el-row>
 
-        <el-row style="margin-top: 20px;">
-            <el-col>
+                    <el-row style="margin-top: 20px;">
+                        <el-col>
 
-                <el-input style="width: 200px;" v-model="value" placeholder="请输入内容"></el-input>
-                <el-input type="textarea" style="width: 200px;" v-model="value1" placeholder="找工作好难"></el-input>
+                            <el-input style="width: 200px;" v-model="value" placeholder="请输入内容"></el-input>
+                            <el-input type="textarea" style="width: 200px;" v-model="value1"
+                                placeholder="找工作好难"></el-input>
 
-                <el-input show-password style="width: 200px;" v-model="password" placeholder="请输入密码"></el-input>
+                            <el-input show-password style="width: 200px;" v-model="password"
+                                placeholder="请输入密码"></el-input>
 
-                <el-input style="width: 200px;" v-model="value2" placeholder="请输入内容"
-                    prefix-icon="el-icon-search"></el-input>
-                <el-input clearable style="width: 200px;" v-model="value2" placeholder="请输入内容"
-                    suffix-icon="el-icon-search"></el-input>
+                            <el-input style="width: 200px;" v-model="value2" placeholder="请输入内容"
+                                prefix-icon="el-icon-search"></el-input>
+                            <el-input clearable style="width: 200px;" v-model="value2" placeholder="请输入内容"
+                                suffix-icon="el-icon-search"></el-input>
 
-                <el-button>搜索</el-button>
+                            <el-button>搜索</el-button>
 
-            </el-col>
+                        </el-col>
 
-        </el-row>
-
-
-        <el-row style="margin: 20px 0;">
-            <el-autocomplete style="width:300px;" placeholder="请输入内容，我来帮你猜一猜" :fetch-suggestions="querySearch"
-                :trigger-on-focus="false" v-model="value3">
-
-            </el-autocomplete>
-        </el-row>
-
-        <el-select v-model="select" @change="changeSelect">
-            <el-option value="香蕉"></el-option>
-            <el-option value="橘子"></el-option>
-            <el-option value="菠萝"></el-option>
-        </el-select>
-
-        <el-select v-model="select1" @change1="changeSelect">
-            <el-option v-for="item in fruits" :key="item.id" :label="item.name" :value="item.name"></el-option>
-        </el-select>
-
-        <el-select v-model="select2" @change="changeSelectUser">
-            <el-option v-for="item in users" :key="item.card" :label="item.name" :value="item.card"></el-option>
-        </el-select>
-        <el-select v-model="select2" @change="changeSelectUser" multiple>
-            <el-option v-for="item in users" :key="item.card" :label="item.name" :value="item.card"></el-option>
-        </el-select>
-
-        <el-select v-model="select2" @change="changeSelectUser" filterable>
-            <el-option v-for="item in users1" :key="item.card" :label="item.label" :value="item.card"></el-option>
-        </el-select>
+                    </el-row>
 
 
-        <el-row>
-            <el-radio-group v-model="radio" @change="selectRadio">
-                <el-radio label="男"></el-radio>
-                <el-radio label="女"></el-radio>
-            </el-radio-group>
+                    <el-row style="margin: 20px 0;">
+                        <el-autocomplete style="width:300px;" placeholder="请输入内容，我来帮你猜一猜"
+                            :fetch-suggestions="querySearch" :trigger-on-focus="false" v-model="value3">
 
-            <el-checkbox-group v-model="checkList">
-                <el-checkbox label="男"></el-checkbox>
-                <el-checkbox label="女"></el-checkbox>
-            </el-checkbox-group>
+                        </el-autocomplete>
+                    </el-row>
 
-            <el-date-picker v-model="date" type="date" placeholder="选择日期" value-format="yyyy-MM-dd"
-                @change="changeDate"></el-date-picker>
-            <el-date-picker v-model="datetime" type="datetime" placeholder="选择日期时间" value-format="yyyy-MM-dd HH:mm:ss"
-                @change="changeDateTime"></el-date-picker>
+                    <el-select v-model="select" @change="changeSelect">
+                        <el-option value="香蕉"></el-option>
+                        <el-option value="橘子"></el-option>
+                        <el-option value="菠萝"></el-option>
+                    </el-select>
 
-            <el-date-picker v-model="daterange" type="daterange" start-placeholder="开始日期" end-placeholder="结束日期"
-                value-format="yyyy-MM-dd">
+                    <el-select v-model="select1" @change1="changeSelect">
+                        <el-option v-for="item in fruits" :key="item.id" :label="item.name"
+                            :value="item.name"></el-option>
+                    </el-select>
 
-            </el-date-picker>
+                    <el-select v-model="select2" @change="changeSelectUser">
+                        <el-option v-for="item in users" :key="item.card" :label="item.name"
+                            :value="item.card"></el-option>
+                    </el-select>
+                    <el-select v-model="select2" @change="changeSelectUser" multiple>
+                        <el-option v-for="item in users" :key="item.card" :label="item.name"
+                            :value="item.card"></el-option>
+                    </el-select>
 
-
-        </el-row>
-
-        <el-row style="margin: 80px 0;">
-            <el-table :data="tableData" border :header-cell-style="{ background: 'aliceblue',fontSize:'16px'}">
-                <el-table-column label="序号" prop="id" align="center"></el-table-column>
-                <el-table-column label="名称" prop="name" align="center"></el-table-column>
-                <el-table-column label="年龄" prop="age" align="center"></el-table-column>
-                <el-table-column label="地址" prop="address" align="center"></el-table-column>
-                <el-table-column label="操作" align="center">
-                    <template v-slot="scope">
-                        <el-button type="primary" @click="edit(scope.row)">编辑</el-button>
-                    </template>
-                </el-table-column>
-            </el-table>
-        </el-row>
+                    <el-select v-model="select2" @change="changeSelectUser" filterable>
+                        <el-option v-for="item in users1" :key="item.card" :label="item.label"
+                            :value="item.card"></el-option>
+                    </el-select>
 
 
+                    <el-row>
+                        <el-radio-group v-model="radio" @change="selectRadio">
+                            <el-radio label="男"></el-radio>
+                            <el-radio label="女"></el-radio>
+                        </el-radio-group>
+
+                        <el-checkbox-group v-model="checkList">
+                            <el-checkbox label="男"></el-checkbox>
+                            <el-checkbox label="女"></el-checkbox>
+                        </el-checkbox-group>
+
+                        <el-date-picker v-model="date" type="date" placeholder="选择日期" value-format="yyyy-MM-dd"
+                            @change="changeDate"></el-date-picker>
+                        <el-date-picker v-model="datetime" type="datetime" placeholder="选择日期时间"
+                            value-format="yyyy-MM-dd HH:mm:ss" @change="changeDateTime"></el-date-picker>
+
+                        <el-date-picker v-model="daterange" type="daterange" start-placeholder="开始日期"
+                            end-placeholder="结束日期" value-format="yyyy-MM-dd">
+
+                        </el-date-picker>
+
+
+                    </el-row>
+
+                    <el-row style="margin: 80px 0;">
+                        <el-table :data="tableData" border
+                            :header-cell-style="{ background: 'aliceblue', fontSize: '16px' }">
+                            <el-table-column label="序号" prop="id" align="center"></el-table-column>
+                            <el-table-column label="名称" prop="name" align="center"></el-table-column>
+                            <el-table-column label="年龄" prop="age" align="center"></el-table-column>
+                            <el-table-column label="地址" prop="address" align="center"></el-table-column>
+                            <el-table-column label="操作" align="center">
+                                <template v-slot="scope">
+                                    <el-button type="primary" @click="edit(scope.row)">编辑</el-button>
+                                </template>
+                            </el-table-column>
+                        </el-table>
+                    </el-row>
+
+
+                </el-main>
+
+            </el-container>
+
+
+
+
+        </el-container>
     </div>
 </template>
 
