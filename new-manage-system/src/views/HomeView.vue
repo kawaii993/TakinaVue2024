@@ -3,10 +3,13 @@
     <el-container>
 
       <!-- 侧边栏 -->
-      <el-aside :width="asideWidth" style=" min-height: 100vh; background-color: rgba(68, 66, 99, 0.5) ;">
+      <el-aside :width="asideWidth" style=" min-height: 100vh; background-color: rgba(68, 66, 99, 0.9) ;">
         <div style="height: 60px; line-height: 60px;  color: white; 
         display: flex; align-items: center; justify-content: center;">
-          logo
+          <img src="@/assets/logo.png" alt="" style="width: 40px;height: 40px;">
+          <transition name="el-fade-in-linear">
+            <span style="margin-left: 5px; font-size: 20px;" v-show="!isCollapse">Cutey993</span>
+          </transition>
         </div>
         <!-- 菜单栏 -->
         <el-menu :collapse="isCollapse" :collapse-transition="false" router background-color="rgba(68, 66, 99, 0.3 )"
@@ -39,7 +42,7 @@
             </template>
             <el-menu-item>用户信息</el-menu-item>
             <el-menu-item>管理员信息</el-menu-item>
-            <el-menu-item index="/">系统首页</el-menu-item>
+            <el-menu-item>其他信息</el-menu-item>
           </el-submenu>
         </el-menu>
       </el-aside>
@@ -48,15 +51,80 @@
       <el-container>
         <!-- 头部区域 -->
         <el-header>
-          <i class="el-icon-set-up " style="width: 40px; margin-top: 30px;font-size: 30px;" @click="handleCollapse">
+          <i :class="collapseIcon" style="width: 40px; margin-left: 20px;margin-right: 20px;font-size: 26px;"
+            @click="handleCollapse">
           </i>
-          头部区域
+          <el-breadcrumb separator-class="el-icon-arrow-right">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/element' }">Element页面</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/user' }">用户管理</el-breadcrumb-item>
+          </el-breadcrumb>
+
+          <div style="flex: 1; width: 0; display: flex; align-items: center; justify-content: flex-end;">
+            <i class="el-icon-quanping-copy" style="font-size: 24px;margin-right: 20px;" @click="handleFull"></i>
+            <el-dropdown placement="bottom">
+              <div style="display: flex; align-items: center; cursor: default;">
+                <img src="@/assets/logo1.jpg" alt="" style="width: 40px; height: 40px;margin-right: 5px;">
+                <span>眠羊</span>
+              </div>
+
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>个人信息</el-dropdown-item>
+                <el-dropdown-item>修改密码</el-dropdown-item>
+                <el-dropdown-item @click="1">退出登录</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </div>
+
         </el-header>
 
         <!-- 主体区域 -->
         <el-main>
-          主体区域
+          <div
+            style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 8px; padding: 20px; background-color: #f5f7fa; margin-bottom: 20px;">
+            是一段小有遗憾的快乐时光。
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+            <el-card
+              style="width: calc(50% - 10px); margin-bottom: 20px; border: none; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); border-radius: 8px;">
+              <div slot="header" class="clearfix">
+                <span style="font-weight: bold; font-size: 16px;">看你挺会走路的，要不要一起散个步</span>
+              </div>
+              <div style="font-size: 14px; color: #606266;">
+                我知道你玩我，但是这个无所谓，我也只是本能的对你好一些，我的日常无趣，性格又寡淡，也没有获得什么成就，很谢谢你陪我。
+                <div style="margin-top: 20px;">
+                  <div style="margin-bottom: 10px;"><strong>主题色</strong></div>
+                  <el-button type="primary" size="small">1</el-button>
+                  <el-button type="success" size="small">2</el-button>
+                  <el-button type="warning" size="small">3</el-button>
+                  <el-button type="danger" size="small">4</el-button>
+                  <el-button type="info" size="small">5</el-button>
+                </div>
+              </div>
+            </el-card>
+
+            <el-card
+              style="width: calc(50% - 10px); margin-bottom: 20px; border: none; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); border-radius: 8px;">
+              <div slot="header" class="clearfix">
+                <span style="font-weight: bold; font-size: 16px;">看你挺会走路的，要不要一起散个步</span>
+              </div>
+              <div style="font-size: 14px; color: #606266;">
+                我知道你玩我，但是这个无所谓，我也只是本能的对你好一些，我的日常无趣，性格又寡淡，也没有获得什么成就，很谢谢你陪我。
+                <div style="margin-top: 20px;">
+                  <div style="margin-bottom: 10px;"><strong>主题色</strong></div>
+                  <el-button type="primary" size="small">1</el-button>
+                  <el-button type="success" size="small">2</el-button>
+                  <el-button type="warning" size="small">3</el-button>
+                  <el-button type="danger" size="small">4</el-button>
+                  <el-button type="info" size="small">5</el-button>
+                </div>
+              </div>
+            </el-card>
+          </div>
         </el-main>
+
+
 
       </el-container>
 
@@ -73,13 +141,29 @@ export default {
   data() {
     return {
       isCollapse: false,//不收缩
-      asideWidth: '200px'
+      asideWidth: '200px',
+      collapseIcon: 'el-icon-s-fold'
     }
   },
   methods: {
+    handleFull() {
+      if (!document.fullscreenElement) {
+        // 如果当前不是全屏状态，则请求全屏
+        document.documentElement.requestFullscreen()
+          .catch(err => {
+            alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+          });
+      } else {
+        // 如果当前是全屏状态，则退出全屏
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    },
     handleCollapse() {
       this.isCollapse = !this.isCollapse
       this.asideWidth = this.isCollapse ? '64px' : '200px'
+      this.collapseIcon = this.isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'
     }
   }
 }
@@ -144,4 +228,21 @@ el-submenu__title:hover {
 /* .el-submenu__icon-arrow{
   margin-top: -5px;
 } */
+
+.el-aside {
+  transition: width .15s;
+  border-radius: 10px !important;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+.el-menu {
+  border-radius: 10px !important;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+.el-header {
+  box-shadow: 2px 0 6px rgba(0, 21, 41, .35);
+  display: flex;
+  align-items: center;
+}
 </style>

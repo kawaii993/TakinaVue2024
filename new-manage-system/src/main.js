@@ -5,6 +5,8 @@ import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+import '@/assets/css/iconfont/iconfont.css'
+
 // @表示src文件夹
 import '@/assets/css/global.css'
 
